@@ -1,13 +1,19 @@
 package com.example.helloworld;
 
+import com.example.helloworld.model.EmployeeBean;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
 
 @SpringBootApplication
 public class HelloworldApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(HelloworldApplication.class, args);
+		ApplicationContext context =SpringApplication.run(HelloworldApplication.class, args);
+		// Retrieve EmployeeBean from ApplicationContext (IoC Demonstration)
+		EmployeeBean employee = context.getBean(EmployeeBean.class);
+		System.out.println("IoC Container Managed Bean: " + employee.getEmployeeDetails());
+
 	}
 
 }
